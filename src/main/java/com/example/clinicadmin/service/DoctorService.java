@@ -15,7 +15,7 @@ public class DoctorService {
         this.doctorRepository = doctorRepository;
     }
 
-    public Doctor getDoctorById(int id){
+    public Doctor getDoctorById(int id) {
         Doctor doctor = new Doctor();
         doctor.setId(1);
         doctor.setActive(true);
@@ -23,11 +23,10 @@ public class DoctorService {
         doctor.setLastName("Потапов");
         doctor.setExperience(15);
         return doctorRepository.findById(id).orElse(doctor);
-        // return doctorRepository.findById(id)
-        // .orElseThrow(()->new ClinicException("Доктор не найден"));
+
     }
 
-    public List<Doctor> getDoctors(){
+    public List<Doctor> getDoctors() {
         Doctor doctor01 = new Doctor();
         doctor01.setId(1);
         doctor01.setActive(true);
@@ -53,11 +52,11 @@ public class DoctorService {
     public String getActiveDoctors() {
         List<Doctor> doctors = doctorRepository.findAll();
         int count = 0;
-for (Doctor doctor : doctors){
-    if (doctor.isActive()){
-        count ++;
-    }
-}
+        for (Doctor doctor : doctors) {
+            if (doctor.isActive()) {
+                count++;
+            }
+        }
         return "" + count;
     }
 

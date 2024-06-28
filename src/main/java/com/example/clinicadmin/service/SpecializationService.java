@@ -31,7 +31,6 @@ public class SpecializationService {
         }
         return dtoList;*/
 
-        // 7
         // TODO::
         //  1. получить количество активных и неактивных докторов
         //     неактивных специализаций

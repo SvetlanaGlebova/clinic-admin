@@ -50,7 +50,4 @@ public class Doctor {
     private List<Specialization> specializations = new ArrayList<>();
 }
 
-//один ко многим @OneToMany - List / Set
-//многие к одному @ManyToOne - Specialization spec
-//многие ко многим @ManyToMany - List / Set
-//один к одному @OneToOne - Specialization spec
+

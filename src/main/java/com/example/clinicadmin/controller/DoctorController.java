@@ -40,13 +40,13 @@ public class DoctorController {
         return "doctor/doctors";
     }
 
-    @GetMapping("/doctor/{id}")
+    /*@GetMapping("/doctor/{id}")
     public String getDoctorById(@PathVariable int id, Model model) {
         Doctor doctor = doctorService.getDoctorById(id);
         model.addAttribute("doctor_info", doctor);
         // doctor_info - ссылка на doctor из html
         return "doctor/doctor";
-    }
+    }*/
 
     // метод вернет форму
     @GetMapping("/doctor/form")
