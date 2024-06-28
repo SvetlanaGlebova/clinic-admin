@@ -1,0 +1,12 @@
+<nav th:fragment="menu(specializations)">
+    <a th:each="specialization : ${specializations}"
+       th:text="${specialization.name}"
+       th:href="@{/doctor/specialization/{code}
+       (code=${specialization.code})}"></a>
+</nav>
+
+
+<!--фрагмент можно переиспользовать по имени footer -->
+<footer th:fragment="footer">
+    Подвал сайта
+</footer>

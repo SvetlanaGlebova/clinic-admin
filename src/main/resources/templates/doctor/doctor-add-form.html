@@ -1,0 +1,41 @@
+<!DOCTYPE
+        <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление доктора</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/doctor}">
+    @NotNull
+    @Size(min = 2, max = 20)
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+
+    @NotNull
+    @Size(min = 2, max = 20)
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Min(value = 3, message = "Опыт работы не менее 3 лет")
+    @Column(name = "experience", nullable = false)
+    private int experience;
+
+    <form method="post" th:action="@{/doctor}" th:object="${doctor}">
+        <lebel>Введите имя
+        input type="text" th:field="*{doctor.firstName}" >
+            <lebel>
+                <lebel>Введите фамилию
+            <input type="text" th:field="*{doctor.lastName}">
+                    <span th:if="${#fields.hasErrors('lastName')}"
+                          th:errors="*{lastName}"
+            </lebel>
+                Введите опыт работы
+                <input type="number"
+        </lebel>
+    </form>
+    <input type="submit" value="Сохранить">
+</form>
+</body>
+
