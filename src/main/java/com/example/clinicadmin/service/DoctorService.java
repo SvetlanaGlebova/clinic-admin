@@ -1,7 +1,12 @@
 package com.example.clinicadmin.service;
 
 import com.example.clinicadmin.entity.Doctor;
+import com.example.clinicadmin.entity.Patient;
 import com.example.clinicadmin.repository.DoctorRepository;
+import com.example.clinicadmin.repository.PatientRepository;
+import com.example.clinicadmin.utils.NotificationManager;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -65,10 +70,14 @@ public class DoctorService {
     }
 
     public void addDoctor(Doctor doctor) {
+
+        NotificationManager.notifyAboutDoctor(doctor);
+
+        doctorRepository.save(doctor);
     }
 
 
-    /*public List<Doctor> getDoctors(){
+    public List<Doctor> getDoctorsBySpecializationCode(String code) {
         Doctor doctor01 = new Doctor();
         doctor01.setId(1);
         doctor01.setActive(true);
@@ -82,10 +91,12 @@ public class DoctorService {
         doctor02.setFirstName("Ольга");
         doctor02.setLastName("Иванова");
         doctor02.setExperience(22);
-        List<Doctor> doctors = doctorRepository.findAll();
+        List<Doctor> doctors = doctorRepository.findDoctorsBySpecializationCode(code);
         if (doctors.isEmpty()) {
             doctors.add(doctor01);
             doctors.add(doctor02);
         }
-        return doctors;*/
+        return doctors;
+    }
+
 }
